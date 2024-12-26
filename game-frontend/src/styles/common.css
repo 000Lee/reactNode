@@ -1,4 +1,7 @@
 /* 초기화 */
+body {
+   min-width: 1920px;
+}
 *,
 html,
 body,
@@ -38,7 +41,7 @@ body::before {
    background-image: url('../../public/images/jeremy-thomas-4dpAqfTbvKA-unsplash.jpg'); /* 이미지 경로 */
    background-size: cover;
    background-position: center;
-   background-repeat: no-repeat;
+   background-repeat: none;
    opacity: 0.5; /* 이미지 투명도 설정 */
    z-index: -1; /* 텍스트보다 뒤로 */
 }
@@ -56,6 +59,7 @@ body::before {
    float: left;
 }
 
+/*  */
 /* header */
 .header {
    padding: 0 60px;
@@ -140,6 +144,7 @@ body::before {
    background-color: #bc2fff;
    border-radius: 25px 0 25px 0;
 }
+
 /*  */
 /* 회원가입 컨테이너 */
 
@@ -220,4 +225,105 @@ button {
 button:hover:not(:disabled) {
    background-color: rgba(230, 177, 255, 0.3);
    transform: translateY(-2px);
+}
+
+/*  */
+/* 로그인 컨테이너 */
+/* 회원가입 컨테이너 */
+
+/* 상단 연보라 바 */
+.login > h1 {
+   padding: 10px 75px;
+   overflow: hidden; /* float clear */
+   position: relative;
+   color: #4c0070;
+   font-weight: 600;
+   font-size: 20px;
+   margin-bottom: 100px;
+}
+.login > h1::after {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%; /* li의 너비를 채움 */
+   height: 100%; /* li의 높이를 채움 */
+   z-index: -1; /* 텍스트보다 뒤로 */
+   background-color: #e6b1ff;
+   opacity: 0.7;
+}
+/* 입력 필드 박스 */
+.loginBox {
+   width: 350px;
+   display: flex; /* ? */
+   justify-content: space-between; /* ? */
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0.2);
+   padding: 10px 20px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+   margin: 0 auto 20px auto;
+}
+.loginBox > label {
+   font-size: 16px;
+   color: #ffffff;
+   flex: 1; /* ? */
+   font-weight: 500;
+   text-align: left;
+}
+
+.loginBox > input {
+   background-color: transparent;
+   border: none;
+   outline: none;
+   font-size: 16px;
+   color: #ffffff;
+   flex: 4;
+   padding: 5px;
+}
+
+/* 회원가입으로 이동 */
+.gotoSignup {
+   margin: 0 auto;
+   width: fit-content;
+}
+.gotoSignup > ul {
+   display: flex;
+   transform: translateX(80px);
+}
+.gotoSignup > ul > li {
+   margin-left: 20px;
+}
+
+/*  */
+/* 홈 */
+/* 이미지 */
+.girl1 {
+   mix-blend-mode: screen;
+   display: block;
+   margin: 100px auto 0 auto;
+}
+/* 소셜&리뷰 네비 */
+.middleNav {
+   padding: 10px 75px;
+   position: relative;
+   color: #4c0070;
+   font-weight: 600;
+   font-size: 20px;
+   margin-bottom: 100px;
+}
+.middleNav::after {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%; /* li의 너비를 채움 */
+   height: 100%; /* li의 높이를 채움 */
+   z-index: -1; /* 텍스트보다 뒤로 */
+   background-color: #e6b1ff;
+   opacity: 0.7;
+}
+.middleNav > ul {
+   display: flex;
+   justify-content: center;
+   gap: 270px;
 }

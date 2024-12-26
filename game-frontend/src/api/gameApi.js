@@ -54,3 +54,67 @@ export const checkAuthStatus = async () => {
       throw error
    }
 }
+
+//리뷰 등록
+export const createReview = async (reviewData) => {
+   try {
+      //reviewData: 등록할 게시물 데이터가 담겨있는 json객체
+
+      /*       const config = {
+         headers: {
+            'Content-Type': 'multipart/form-data', // 파일 전송시 반드시 지정
+         },
+      } */
+
+      const response = await gameApi.post('/review', reviewData)
+      return response
+   } catch (error) {
+      console.error(`API Request 오류: ${error.message}`)
+      throw error
+   }
+}
+/*  */
+//리뷰 수정
+export const updatedReview = async (id, reviewData) => {
+   try {
+      //postData: 수정할 게시물 데이터가 담겨있는 json객체
+      const response = await gameApi.put(`/review/${id}`, reviewData)
+      return response
+   } catch (error) {
+      console.error(`API Request 오류: ${error.message}`)
+      throw error
+   }
+}
+
+//리뷰 삭제
+export const deleteReview = async (id) => {
+   try {
+      const response = await gameApi.delete(`/review/${id}`)
+      return response
+   } catch (error) {
+      console.error(`API Request 오류: ${error.message}`)
+      throw error
+   }
+}
+
+//특정 리뷰 가져오기
+export const getReviewById = async (id) => {
+   try {
+      const response = await gameApi.get(`/review/${id}`)
+      return response
+   } catch (error) {
+      console.error(`API Request 오류: ${error.message}`)
+      throw error
+   }
+}
+
+//전체 리뷰 가져오기(페이징)
+export const getReviews = async (page) => {
+   try {
+      const response = await gameApi.get(`/review?page=${page}`)
+      return response
+   } catch (error) {
+      console.error(`API Request 오류: ${error.message}`)
+      throw error
+   }
+}

@@ -3,7 +3,7 @@ import { useCallback } from 'react'
 import { useDispatch } from 'react-redux'
 import { logoutUserThunk } from '../../features/authSlice'
 
-const Navbar = ({ isAuthenticated /* , user  */ }) => {
+const Navbar = ({ isAuthenticated, user }) => {
    const dispatch = useDispatch()
    const navigate = useNavigate()
 
@@ -31,7 +31,7 @@ const Navbar = ({ isAuthenticated /* , user  */ }) => {
             <div className="loginTrueWrap">
                <ul className="loginTrue">
                   <li>
-                     <Link to="/* 마이페이지 */">가라닉네임</Link>
+                     <Link to="/my">{user?.nick}</Link>
                   </li>
                   <li>
                      <ul className="heartCount">
@@ -60,3 +60,7 @@ const Navbar = ({ isAuthenticated /* , user  */ }) => {
 }
 
 export default Navbar
+
+/* user?.nick의 의미
+user가 null이거나 undefined라면, user.nick에 접근하려고 시도하지 않고 그냥 undefined를 반환합니다.
+그렇지 않다면 user.nick의 값을 반환합니다. */
