@@ -1,0 +1,223 @@
+/* 초기화 */
+*,
+html,
+body,
+ul,
+li {
+   margin: 0; /* 기본 여백 제거 */
+   padding: 0; /* 기본 패딩 제거 */
+   list-style: none;
+}
+
+a {
+   text-decoration: none;
+   color: inherit;
+}
+
+/* 프리텐다드 */
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css');
+
+/* 배경 */
+body {
+   margin: 0;
+   height: 100vh;
+   background-color: #121212; /* 배경색을 검정으로 설정 */
+   position: relative;
+   color: #ffffff; /* 텍스트 색상 */
+
+   font-family: 'Pretendard Variable', Pretendard, sans-serif;
+}
+
+body::before {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-image: url('../../public/images/jeremy-thomas-4dpAqfTbvKA-unsplash.jpg'); /* 이미지 경로 */
+   background-size: cover;
+   background-position: center;
+   background-repeat: no-repeat;
+   opacity: 0.5; /* 이미지 투명도 설정 */
+   z-index: -1; /* 텍스트보다 뒤로 */
+}
+
+/* 로고 */
+@import url('https://fonts.googleapis.com/css2?family=Princess+Sofia&display=swap');
+
+.princessSofia {
+   font-family: 'Princess Sofia', serif;
+   font-weight: 400;
+   font-style: normal;
+   font-size: 32px;
+   color: #ef8dff;
+   padding: 20px 0;
+   float: left;
+}
+
+/* header */
+.header {
+   padding: 0 60px;
+   overflow: hidden; /* float clear */
+   position: relative;
+}
+.header::after {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%; /* li의 너비를 채움 */
+   height: 100%; /* li의 높이를 채움 */
+   z-index: -2; /* 텍스트보다 뒤로 */
+   background-color: white;
+   opacity: 0.2;
+}
+/* 로그인 했을 때 */
+.loginTrueWrap {
+   float: right;
+   padding: 45px 0;
+}
+.loginTrue {
+   display: flex;
+}
+.loginTrue > li {
+   margin-left: 50px;
+   color: #f5b8ff;
+   position: relative;
+   padding: 5px 25px;
+   font-weight: 700;
+   font-size: 20px;
+}
+.loginTrue > li::after {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%; /* li의 너비를 채움 */
+   height: 100%; /* li의 높이를 채움 */
+   opacity: 0.7; /* 이미지 투명도 설정 */
+   z-index: -1; /* 텍스트보다 뒤로 */
+   background-color: #bc2fff;
+   border-radius: 25px 0 25px 0;
+}
+
+.heartCount {
+   display: flex;
+}
+.heartCount > li:nth-child(2) {
+   margin-left: 25px;
+}
+.starCount {
+   align-items: center;
+   display: flex;
+}
+.starCount > li:nth-child(2) {
+   margin-left: 25px;
+}
+
+/* 로그아웃 상태일때 */
+.loginFalseWrap {
+   float: right;
+   padding: 45px 0;
+}
+.loginFalseWrap > a {
+   color: #f5b8ff;
+   position: relative;
+   padding: 5px 25px;
+   font-weight: 700;
+   font-size: 20px;
+}
+.loginFalseWrap > a::after {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%; /* li의 너비를 채움 */
+   height: 100%; /* li의 높이를 채움 */
+   opacity: 0.7; /* 이미지 투명도 설정 */
+   z-index: -1; /* 텍스트보다 뒤로 */
+   background-color: #bc2fff;
+   border-radius: 25px 0 25px 0;
+}
+/*  */
+/* 회원가입 컨테이너 */
+
+/* 상단 연보라 바 */
+.signup > h1 {
+   padding: 10px 75px;
+   overflow: hidden; /* float clear */
+   position: relative;
+   color: #4c0070;
+   font-weight: 600;
+   font-size: 20px;
+   margin-bottom: 100px;
+}
+.signup > h1::after {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%; /* li의 너비를 채움 */
+   height: 100%; /* li의 높이를 채움 */
+   z-index: -1; /* 텍스트보다 뒤로 */
+   background-color: #e6b1ff;
+   opacity: 0.7;
+}
+/*  */
+
+/* 입력 필드 박스 */
+.signupBox,
+.signupBox1 {
+   width: 350px;
+   display: flex; /* ? */
+   justify-content: space-between; /* ? */
+   align-items: center;
+   background-color: rgba(255, 255, 255, 0.2);
+   padding: 10px 20px;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+   margin: 0 auto 20px auto;
+}
+.signupBox > label,
+.signupBox1 > label {
+   font-size: 16px;
+   color: #ffffff;
+   flex: 1; /* ? */
+   font-weight: 500;
+   text-align: left;
+}
+
+.signupBox > input,
+.signupBox1 > input {
+   background-color: transparent;
+   border: none;
+   outline: none;
+   font-size: 16px;
+   color: #ffffff;
+   flex: 2;
+   padding: 5px;
+}
+.signupBox > input {
+   flex: 4;
+}
+/* 가입 버튼 */
+button {
+   width: 390px;
+   display: block;
+   margin: 40px auto;
+   padding: 10px 0;
+   font-size: 18px;
+   font-weight: 600;
+   background-color: rgba(255, 255, 255, 0.2);
+   font-size: 16px;
+   color: #ffffff;
+   border: none;
+   cursor: pointer;
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+   transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover:not(:disabled) {
+   background-color: rgba(230, 177, 255, 0.3);
+   transform: translateY(-2px);
+}
