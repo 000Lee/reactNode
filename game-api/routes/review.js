@@ -13,15 +13,15 @@ router.post('/', isLoggedIn, async (req, res) => {
       //게시물 생성
       const review = await Review.create({
          content: req.body.content, // 게시물 내용dog1231342432443.jpg
-         userId: req.user.id, //작성자 id
-      })
+         UserId: req.user.id, //작성자 id
+      }) // UserId여기랑
 
       res.json({
          success: true,
          review: {
             id: review.id,
             content: review.content,
-            userId: review.UserId,
+            userId: review.UserId, //여기 UserId 대문자여야 함 (왜인지모름)
          },
          message: '게시물이 성공적으로 등록되었습니다.',
       })

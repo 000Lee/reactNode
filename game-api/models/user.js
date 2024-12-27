@@ -42,6 +42,6 @@ module.exports = class User extends Sequelize.Model {
    }
 
    static associate(db) {
-      //   db.User.hasMany(db.review)
+      db.User.hasMany(db.Review)
    }
 }

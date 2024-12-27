@@ -57,6 +57,7 @@ export const checkAuthStatus = async () => {
 
 //리뷰 등록
 export const createReview = async (reviewData) => {
+   console.log('보내는 데이터:', reviewData)
    try {
       //reviewData: 등록할 게시물 데이터가 담겨있는 json객체
 
@@ -73,6 +74,7 @@ export const createReview = async (reviewData) => {
       throw error
    }
 }
+
 /*  */
 //리뷰 수정
 export const updatedReview = async (id, reviewData) => {
