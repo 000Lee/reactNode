@@ -11,7 +11,7 @@ import { deleteReviewThunk } from '../../features/reviewSlice'
 
 const ReviewItem = ({ isAuthenticated, user, review }) => {
    const dispatch = useDispatch()
-
+   console.log(user)
    //리뷰 삭제 실행
    const onClickDelete = useCallback(
       (id) => {
@@ -40,14 +40,14 @@ const ReviewItem = ({ isAuthenticated, user, review }) => {
          </div>
          <div>
             {/* !!!!여기부터 보기 */}
-            {isAuthenticated && review.User.id === user.id && (
+            {isAuthenticated && review.UserId === user.id && (
                <div>
                   <Link to={`/review/edit/${review.id}`}>
-                     <button style={{ cursor: 'pointer' }}>✏️</button>
+                     <a style={{ cursor: 'pointer' }}>✏️</a>
                   </Link>
-                  <button style={{ cursor: 'pointer' }} onClick={() => onClickDelete(review.id)}>
+                  <a style={{ cursor: 'pointer' }} onClick={() => onClickDelete(review.id)}>
                      🗑️
-                  </button>
+                  </a>
                </div>
             )}
          </div>

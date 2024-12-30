@@ -28,7 +28,7 @@ function App() {
             <Route path="/" element={<Home isAuthenticated={isAuthenticated} /* user={user} */ />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<LoginPage />} />
-            <Route path="/review" element={<ReviewPage />} />
+            <Route path="/review" element={<ReviewPage isAuthenticated={isAuthenticated} user={user} />} />
             <Route path="/review/create" element={<ReviewCreatePage />} />
             {/* <Route path="/posts/edit/:id" element={<PostEditPage />} /> */}
             {/* <Route path="/my/:id" element={<MyPage />} /> */}
