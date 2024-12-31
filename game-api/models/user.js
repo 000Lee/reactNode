@@ -1,3 +1,5 @@
+// C:\lkh\project\reactNode\game-api\models\user.js
+
 const Sequelize = require('sequelize')
 
 module.exports = class User extends Sequelize.Model {
@@ -22,10 +24,12 @@ module.exports = class User extends Sequelize.Model {
             heart: {
                type: Sequelize.INTEGER,
                allowNull: true,
+               defaultValue: 0,
             },
             star: {
                type: Sequelize.INTEGER,
                allowNull: true,
+               defaultValue: 0,
             },
          },
          {

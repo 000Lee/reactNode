@@ -1,3 +1,5 @@
+//C:\lkh\project\reactNode\game-frontend\src\components\auth\Signup.jsx
+
 import { useCallback, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'

@@ -1,3 +1,5 @@
+// C:\lkh\project\reactNode\game-frontend\src\pages\ReviewCreatePage.jsx
+
 /* import { Container } from '@mui/material' */
 import ReviewForm from '../components/review/ReviewForm'
 import { useDispatch } from 'react-redux'
@@ -22,7 +24,7 @@ const ReviewCreatePage = () => {
             .unwrap()
             .then(() => {
                //navigate('/') //게시물 등록 후 메인페이지로 이동
-               window.location.href = '/' // 페이지 이동 => 전체 페이지 새로고침
+               window.location.href = '/review' // 페이지 이동 => 전체 페이지 새로고침
             })
             .catch((error) => {
                console.error('게시물 등록 에러: ', error)

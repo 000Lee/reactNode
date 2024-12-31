@@ -1,3 +1,5 @@
+// C:\lkh\project\reactNode\game-api\passport\index.js
+
 const passport = require('passport')
 const local = require('./localStrategy')
 const User = require('../models/user')

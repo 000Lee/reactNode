@@ -1,3 +1,5 @@
+// C:\lkh\project\reactNode\game-api\routes\review.js
+
 const express = require('express')
 const multer = require('multer')
 const path = require('path')
@@ -6,28 +8,47 @@ const { Review, User } = require('../models')
 const { isLoggedIn } = require('./middlewares')
 const router = express.Router()
 
-//게시물 등록 localhost:8000/post
-// <input type="file" name=img />
+/* 여기부터 보기 */
+// 게시물 등록 localhost:8000/post
 router.post('/', isLoggedIn, async (req, res) => {
    try {
-      //게시물 생성
+      // 랜덤 값 생성
+      const heart = Math.floor(Math.random() * 100)
+
+      const star = Math.floor(Math.random() * 100)
+
+      // 게시물 생성
       const review = await Review.create({
-         content: req.body.content, // 게시물 내용dog1231342432443.jpg
-         UserId: req.user.id, //작성자 id
-      }) // UserId여기랑
+         content: req.body.content, // 게시물 내용
+         heart, // 랜덤 값 저장
+         star, // 랜덤 값 저장
+         UserId: req.user.id, // 작성자 ID
+      })
+
+      // 작성자의 heart와 star 값 누적 업데이트
+      const user = await User.findByPk(req.user.id) // 작성자 정보 가져오기
+      user.heart = (user.heart || 0) + heart // heart 값 누적
+      user.star = (user.star || 0) + star // star 값 누적
+      await user.save() // 변경 사항 저장
 
       res.json({
          success: true,
          review: {
             id: review.id,
             content: review.content,
-            userId: review.UserId, //여기 UserId 대문자여야 함 (왜인지모름)
+            heart: review.heart,
+            star: review.star,
+            userId: review.UserId,
          },
-         message: '게시물이 성공적으로 등록되었습니다.',
+         user: {
+            heart: user.heart, // 누적된 heart 값 반환
+            star: user.star, // 누적된 star 값 반환
+         },
+         message: '리뷰가 성공적으로 등록되었습니다.',
       })
    } catch (error) {
       console.error(error)
-      res.status(500).json({ success: false, message: '게시물 등록 중 오류가 발생했습니다.', error })
+      res.status(500).json({ success: false, message: '리뷰 등록 중 오류가 발생했습니다.', error })
    }
 })
 

@@ -1,3 +1,5 @@
+// C:\lkh\project\reactNode\game-api\routes\auth.js
+
 const express = require('express')
 const passport = require('passport')
 const bcrypt = require('bcrypt')
@@ -89,6 +91,8 @@ router.post('/login', isNotLoggedIn, async (req, res, next) => {
             user: {
                id: user.id,
                nick: user.nick,
+               heart: user.heart || 0, // 하트 데이터 반환
+               star: user.star || 0, // 별 데이터 반환
             },
          })
       })
@@ -133,6 +137,8 @@ router.get('/status', async (req, res, next) => {
          user: {
             id: req.user.id,
             nick: req.user.nick,
+            heart: req.user.heart || 0, // heart 값 반환
+            star: req.user.star || 0, // star 값 반환
          },
       })
    } else {

@@ -1,3 +1,5 @@
+// C:\lkh\project\reactNode\game-frontend\src\components\review\ReveiwItem.jsx
+
 /* import { Card, CardMedia, CardContent, Typography, Box, CardActions, Button, IconButton } from '@mui/material'
 import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
@@ -19,7 +21,7 @@ const ReviewItem = ({ isAuthenticated, user, review }) => {
             .unwrap()
             .then(() => {
                // navigate('/') => spa방식
-               window.location.href = '/' // 페이지 이동 => 전체 페이지 새로고침
+               window.location.href = '/review' // 페이지 이동 => 전체 페이지 새로고침
             })
             .catch((error) => {
                console.error('게시물 삭제 중 오류 발생: ', error)
@@ -39,15 +41,15 @@ const ReviewItem = ({ isAuthenticated, user, review }) => {
             <p>{review.content}</p>
          </div>
          <div>
-            {/* !!!!여기부터 보기 */}
+            {/* 버튼 고민 */}
             {isAuthenticated && review.UserId === user.id && (
                <div>
                   <Link to={`/review/edit/${review.id}`}>
-                     <a style={{ cursor: 'pointer' }}>✏️</a>
+                     <div style={{ cursor: 'pointer' }}>✏️</div>
                   </Link>
-                  <a style={{ cursor: 'pointer' }} onClick={() => onClickDelete(review.id)}>
+                  <div style={{ cursor: 'pointer' }} onClick={() => onClickDelete(review.id)}>
                      🗑️
-                  </a>
+                  </div>
                </div>
             )}
          </div>

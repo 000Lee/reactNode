@@ -1,3 +1,5 @@
+// C:\lkh\project\reactNode\game-api\models\review.js
+
 const Sequelize = require('sequelize')
 
 module.exports = class Review extends Sequelize.Model {

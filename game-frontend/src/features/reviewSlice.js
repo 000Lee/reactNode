@@ -1,3 +1,5 @@
+// C:\lkh\project\reactNode\game-frontend\src\features\reviewSlice.js
+
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { createReview, updatedReview, deleteReview, getReviewById, getReviews } from '../api/gameApi'
 
@@ -5,7 +7,7 @@ import { createReview, updatedReview, deleteReview, getReviewById, getReviews } 
 export const createReviewThunk = createAsyncThunk('reviews/createReview', async (reviewData, { rejectWithValue }) => {
    try {
       const response = await createReview(reviewData)
-      return response.data.review
+      return response.data
    } catch (error) {
       return rejectWithValue(error.response?.data?.message || '게시물 등록 실패')
    }

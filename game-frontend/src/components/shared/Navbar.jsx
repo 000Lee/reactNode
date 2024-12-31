@@ -1,9 +1,12 @@
+// C:\lkh\project\reactNode\game-frontend\src\components\shared\Navbar.jsx
+
 import { Link, useNavigate } from 'react-router-dom'
 import { useCallback } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { logoutUserThunk } from '../../features/authSlice'
 
 const Navbar = ({ isAuthenticated, user }) => {
+   const { heart, star } = useSelector((state) => state.auth)
    const dispatch = useDispatch()
    const navigate = useNavigate()
 
@@ -36,13 +39,13 @@ const Navbar = ({ isAuthenticated, user }) => {
                   <li>
                      <ul className="heartCount">
                         <li>♥</li>
-                        <li>0{/* 하트 갯수 컴포넌트*/}</li>
+                        <li>{heart}</li>
                      </ul>
                   </li>
                   <li>
                      <ul className="starCount">
                         <li>★</li>
-                        <li>0{/* 별 갯수 컴포넌트 */}</li>
+                        <li>{star}</li>
                      </ul>
                   </li>
                   <li onClick={handleLogout} style={{ cursor: 'pointer' }}>

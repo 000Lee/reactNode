@@ -1,3 +1,5 @@
+// C:\lkh\project\reactNode\game-api\passport\localStrategy.js
+
 const passport = require('passport')
 const LocalStrategy = require('passport-local').Strategy
 const bcrypt = require('bcrypt')

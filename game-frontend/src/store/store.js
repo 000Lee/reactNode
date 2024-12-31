@@ -1,3 +1,5 @@
+// C:\lkh\project\reactNode\game-frontend\src\store\store.js
+
 import { configureStore } from '@reduxjs/toolkit'
 import authReducer from '../features/authSlice'
 import reviewReducer from '../features/reviewSlice'

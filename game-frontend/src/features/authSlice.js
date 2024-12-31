@@ -1,3 +1,5 @@
+// C:\lkh\project\reactNode\game-frontend\src\features\authSlice.js
+
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { registerUser, loginUser, logoutUser, checkAuthStatus } from '../api/gameApi'
 
@@ -61,8 +63,15 @@ const authSlice = createSlice({
       isAuthenticated: false, //로그인 상태: 로그인이 되어있으면 true 그렇지 않으면 false
       loading: false,
       error: null,
+      heart: 0,
+      star: 0,
    },
-   reducers: {},
+   reducers: {
+      updateHeartStar: (state, action) => {
+         state.heart += action.payload.heart
+         state.star += action.payload.star
+      },
+   },
    extraReducers: (builder) => {
       //회원가입
       builder
@@ -89,6 +98,9 @@ const authSlice = createSlice({
             state.loading = false
             state.isAuthenticated = true
             state.user = action.payload
+            state.heart = action.payload.heart || 0 // 하트 값 저장
+            state.star = action.payload.star || 0 // 별 값 저장
+            // 왜 user.heart 아닌지
          })
          .addCase(loginUserThunk.rejected, (state, action) => {
             state.loading = false
@@ -103,7 +115,7 @@ const authSlice = createSlice({
          .addCase(logoutUserThunk.fulfilled, (state, action) => {
             state.loading = false
             state.isAuthenticated = false
-            state.user = null //로그아웃 후 유저 정보 초기화
+            // state.user = null //로그아웃 후 유저 정보 초기화
          })
          .addCase(logoutUserThunk.rejected, (state, action) => {
             state.loading = false
@@ -119,6 +131,8 @@ const authSlice = createSlice({
             state.loading = false
             state.isAuthenticated = action.payload.isAuthenticated
             state.user = action.payload.user || null
+            state.heart = action.payload.heart || 0
+            state.star = action.payload.star || 0
          })
          .addCase(checkAuthStatusThunk.rejected, (state, action) => {
             state.loading = false
@@ -130,4 +144,5 @@ const authSlice = createSlice({
 })
 /* 결과가 **불리언(true 또는 false)**이어야만 의미가 있다면 논리 조건문입니다.
 결과가 불리언이 아니어도 되는 경우라면 단축 평가입니다. */
+export const { updateHeartStar } = authSlice.actions
 export default authSlice.reducer

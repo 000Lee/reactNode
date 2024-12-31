@@ -1,3 +1,5 @@
+// C:\lkh\project\reactNode\game-frontend\src\api\gameApi.js
+
 import axios from 'axios'
 const BASE_URL = process.env.REACT_APP_API_URL
 

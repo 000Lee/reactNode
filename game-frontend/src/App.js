@@ -1,3 +1,5 @@
+// C:\lkh\project\reactNode\game-frontend\src\App.js
+
 import './styles/common.css'
 import { Route, Routes } from 'react-router-dom'
 import Navbar from './components/shared/Navbar'

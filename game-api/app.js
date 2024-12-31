@@ -1,3 +1,5 @@
+// C:\lkh\project\reactNode\game-api\app.js
+
 const express = require('express')
 const path = require('path') // 경로 처리 유틸리티
 const cookieParser = require('cookie-parser') // 쿠키 처리 미들웨어

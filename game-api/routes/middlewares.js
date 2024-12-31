@@ -1,3 +1,5 @@
+// C:\lkh\project\reactNode\game-api\routes\middlewares.js
+
 //로그인 상태 확인 미들웨어
 exports.isLoggedIn = (req, res, next) => {
    // 사용자가 로그인된 상태인지 확인
