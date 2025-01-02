@@ -11,7 +11,9 @@ import { useEffect } from 'react'
 import { checkAuthStatusThunk } from './features/authSlice'
 import ReviewPage from './pages/ReviewPage'
 import ReviewCreatePage from './pages/ReviewCreatePage'
-// import PostEditPage from './pages/PostEditPage'
+import ReviewDetailPage from './pages/ReviewDetailPage'
+import ReviewEditPage from './pages/ReviewEditPage'
+import Footer from './pages/Footer'
 // import MyPage from './pages/MyPage'
 
 function App() {
@@ -32,10 +34,12 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/review" element={<ReviewPage isAuthenticated={isAuthenticated} user={user} />} />
             <Route path="/review/create" element={<ReviewCreatePage />} />
-            {/* <Route path="/posts/edit/:id" element={<PostEditPage />} /> */}
+            <Route path="/review/:id" element={<ReviewDetailPage />} />
+            <Route path="/review/edit/:id" element={<ReviewEditPage />} />
             {/* <Route path="/my/:id" element={<MyPage />} /> */}
             {/* <Route path="/my/:id" element={<MyPage auth={user} />} /> */}
          </Routes>
+         <Footer />
       </>
    )
 }

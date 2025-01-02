@@ -34,7 +34,7 @@ const ReviewForm = ({ initialValues = {} }) => {
             navigate('/review')
          } catch (error) {
             console.error('리뷰 등록 중 오류 발생:', error)
-            alert('리뷰 등록에 실패했습니다.')
+            alert('계정당 1회 참여 가능합니다.')
          }
       },
       [content, dispatch, navigate]

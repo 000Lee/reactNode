@@ -43,9 +43,11 @@ const Signup = () => {
       return (
          <div className="isSignupComplete">
             <h2>회원가입이 완료되었습니다! </h2>
-            <h2>로그인을 통해 서비스를 이용해 보세요 </h2>
-            <div>
-               <Link to="/login">로그인페이지로 이동</Link>{' '}
+            <h2>
+               <span>로그인</span>을 통해 서비스를 이용해 보세요
+            </h2>
+            <div className="moveToLogin">
+               <Link to="/login">로그인 페이지로 이동</Link>
             </div>
          </div>
       )

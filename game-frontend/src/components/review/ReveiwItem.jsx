@@ -13,7 +13,7 @@ import { deleteReviewThunk } from '../../features/reviewSlice'
 
 const ReviewItem = ({ isAuthenticated, user, review }) => {
    const dispatch = useDispatch()
-   console.log(user)
+   console.log(review)
    //리뷰 삭제 실행
    const onClickDelete = useCallback(
       (id) => {
@@ -31,29 +31,25 @@ const ReviewItem = ({ isAuthenticated, user, review }) => {
       [dispatch]
    )
    return (
-      <div>
-         <div>
-            {/*  Link to={`/my/${review.User.id}`} */}
-            <div>
-               <p>{review.UserId}</p>
-            </div>
-            <p>{dayjs(review.createdAt).format('YYYY-MM-DD HH:mm:ss')}</p>
-            <p>{review.content}</p>
-         </div>
-         <div>
-            {/* 버튼 고민 */}
-            {isAuthenticated && review.UserId === user.id && (
-               <div>
-                  <Link to={`/review/edit/${review.id}`}>
-                     <div style={{ cursor: 'pointer' }}>✏️</div>
-                  </Link>
-                  <div style={{ cursor: 'pointer' }} onClick={() => onClickDelete(review.id)}>
-                     🗑️
-                  </div>
-               </div>
-            )}
-         </div>
-      </div>
+      <ul className="grid">
+         <li>{review.User.nick}</li>
+
+         <li>{dayjs(review.createdAt).format('YYYY-MM-DD HH:mm:ss')}</li>
+         <Link to={`/review/${review.id}`}>{review.content}</Link>
+
+         {/* 버튼 고민 */}
+         {isAuthenticated && review.UserId === user.id && (
+            <ul className="grid2">
+               <li style={{ cursor: 'pointer' }}>
+                  <Link to={`/review/edit/${review.id}`}>✏️</Link>
+               </li>
+
+               <li style={{ cursor: 'pointer' }} onClick={() => onClickDelete(review.id)}>
+                  🗑️
+               </li>
+            </ul>
+         )}
+      </ul>
    )
 }
 

@@ -9,27 +9,38 @@ const { isLoggedIn } = require('./middlewares')
 const router = express.Router()
 
 /* 여기부터 보기 */
-// 게시물 등록 localhost:8000/post
+// 리뷰 등록 로직 수정
 router.post('/', isLoggedIn, async (req, res) => {
    try {
-      // 랜덤 값 생성
-      const heart = Math.floor(Math.random() * 100)
-
-      const star = Math.floor(Math.random() * 100)
-
-      // 게시물 생성
-      const review = await Review.create({
-         content: req.body.content, // 게시물 내용
-         heart, // 랜덤 값 저장
-         star, // 랜덤 값 저장
-         UserId: req.user.id, // 작성자 ID
+      // 이미 리뷰가 있는지 확인
+      const existingReview = await Review.findOne({
+         where: { UserId: req.user.id },
       })
 
-      // 작성자의 heart와 star 값 누적 업데이트
-      const user = await User.findByPk(req.user.id) // 작성자 정보 가져오기
-      user.heart = (user.heart || 0) + heart // heart 값 누적
-      user.star = (user.star || 0) + star // star 값 누적
-      await user.save() // 변경 사항 저장
+      if (existingReview) {
+         return res.status(400).json({
+            success: false,
+            message: '이미 리뷰를 작성하셨습니다.',
+         })
+      }
+
+      // 랜덤 값 생성
+      const heart = Math.floor(Math.random() * 11)
+      const star = Math.floor(Math.random() * 11)
+
+      // 리뷰 생성
+      const review = await Review.create({
+         content: req.body.content,
+         heart,
+         star,
+         UserId: req.user.id,
+      })
+
+      // 사용자 정보 업데이트
+      const user = await User.findByPk(req.user.id)
+      user.heart += heart
+      user.star += star
+      await user.save()
 
       res.json({
          success: true,
@@ -41,8 +52,8 @@ router.post('/', isLoggedIn, async (req, res) => {
             userId: review.UserId,
          },
          user: {
-            heart: user.heart, // 누적된 heart 값 반환
-            star: user.star, // 누적된 star 값 반환
+            heart: user.heart,
+            star: user.star,
          },
          message: '리뷰가 성공적으로 등록되었습니다.',
       })
@@ -58,7 +69,7 @@ router.put('/:id', isLoggedIn, async (req, res) => {
       //게시물 존재 여부 확인
       // select * from posts where id = ? and UserId = ?
       const review = await Review.findOne({ where: { id: req.params.id, userId: req.user.id } })
-      if (!post) {
+      if (!review) {
          return res.status(404).json({ success: false, message: '리뷰를 찾을 수 없습니다.' })
       }
 
@@ -81,11 +92,11 @@ router.put('/:id', isLoggedIn, async (req, res) => {
       res.json({
          success: true,
          review: updatedReview,
-         message: '게시물이 성공적으로 수정되었습니다.',
+         message: '리뷰가 성공적으로 수정되었습니다.',
       })
    } catch (error) {
       console.error(error)
-      res.status(500).json({ success: false, message: '게시물 수정 중 오류가 발생했습니다.', error })
+      res.status(500).json({ success: false, message: '리뷰 수정 중 오류가 발생했습니다.', error })
    }
 })
 
@@ -95,7 +106,7 @@ router.delete('/:id', isLoggedIn, async (req, res) => {
       // 삭제할 게시물 존재 여부 확인
       const review = await Review.findOne({ where: { id: req.params.id, userId: req.user.id } })
       if (!review) {
-         return res.status(404).json({ success: false, message: '게시물을 찾을 수 없습니다.' })
+         return res.status(404).json({ success: false, message: '리뷰를 찾을 수 없습니다.' })
       }
 
       // 게시물 삭제
@@ -103,11 +114,11 @@ router.delete('/:id', isLoggedIn, async (req, res) => {
 
       res.json({
          success: true,
-         message: '게시물이 성공적으로 삭제되었습니다.',
+         message: '리뷰가 성공적으로 삭제되었습니다.',
       })
    } catch (error) {
       console.error(error)
-      res.status(500).json({ success: false, message: '게시물 삭제 중 오류가 발생했습니다.', error })
+      res.status(500).json({ success: false, message: '리뷰 삭제 중 오류가 발생했습니다.', error })
    }
 })
 
@@ -125,17 +136,17 @@ router.get('/:id', async (req, res) => {
       })
 
       if (!review) {
-         return res.status(404).json({ success: false, message: '게시물을 찾을 수 없습니다.' })
+         return res.status(404).json({ success: false, message: '리뷰를 찾을 수 없습니다.' })
       }
 
       res.json({
          success: true,
          review,
-         message: '게시물을 성공적으로 불러왔습니다.',
+         message: '리뷰를 성공적으로 불러왔습니다.',
       })
    } catch (error) {
       console.error(error)
-      res.status(500).json({ success: false, message: '게시물을 불러오는 중 오류가 발생했습니다.', error })
+      res.status(500).json({ success: false, message: '리뷰를 불러오는 중 오류가 발생했습니다.', error })
    }
 })
 
@@ -185,11 +196,11 @@ router.get('/', async (req, res) => {
             totalPages: Math.ceil(count / limit), // 총 페이지 수
             limit, // 페이지당 게시물 수
          },
-         message: '전체 게시물 리스트를 성공적으로 불러왔습니다.',
+         message: '전체 리뷰 리스트를 성공적으로 불러왔습니다.',
       })
    } catch (error) {
       console.error(error)
-      res.status(500).json({ success: false, message: '게시물 리스트를 불러오는 중 오류가 발생했습니다.', error })
+      res.status(500).json({ success: false, message: '리뷰 리스트를 불러오는 중 오류가 발생했습니다.', error })
    }
 })
 

@@ -9,9 +9,8 @@ const Home = () => {
 
          <div className="middleNav">
             <ul>
-               <li>소셜</li>
                <li>
-                  <Link to={`/review`}>리뷰</Link>
+                  <Link to={`/review`}>리뷰 [ 신규 이벤트 진행중 ! ]</Link>
                </li>
             </ul>
          </div>

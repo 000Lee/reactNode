@@ -22,11 +22,13 @@ const ReviewPage = ({ isAuthenticated, user }) => {
    }, [])
 
    return (
-      <div>
-         <div>리뷰</div>
-         <h1>신규 이벤트!</h1>
-         <p>리뷰 작성시 가챠 1회 증정</p>
-         <Link to="/review/create">Click Here!</Link>
+      <div className="reviewList">
+         <h1>리뷰</h1>
+         <h2>신규 이벤트!</h2>
+         <h3>최초 리뷰 작성 시 가챠 1회</h3>
+         <button style={{ marginBottom: '50px' }}>
+            <Link to="/review/create">Click Here!</Link>
+         </button>
          {loading && <p>로딩 중...</p>}
 
          {error && <p>에러 발생: {error}</p>}

@@ -60,7 +60,11 @@ const reviewSlice = createSlice({
    initialState: {
       reviews: [],
       review: null,
-      pagination: null,
+      pagination: {
+         totalPages: 0, // 총 페이지 수 초기값
+         currentPage: 1, // 현재 페이지 초기값
+         totalPosts: 0, // 총 게시물 수 초기값
+      },
       loading: false,
       error: null,
    },
