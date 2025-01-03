@@ -206,7 +206,7 @@ body::before {
    flex: 4;
 }
 /* 가입 버튼 */
-button {
+.buttonCreate {
    width: 390px;
    display: block;
    margin: 40px auto 200px auto;
@@ -222,11 +222,14 @@ button {
    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
+.buttonCreate:hover:not(:disabled) {
+   background-color: rgba(230, 177, 255, 0.3);
+   transform: translateY(-2px);
+}
 button:hover:not(:disabled) {
    background-color: rgba(230, 177, 255, 0.3);
    transform: translateY(-2px);
 }
-
 /*  */
 /* 로그인 컨테이너 */
 /* 회원가입 컨테이너 */
@@ -283,7 +286,7 @@ button:hover:not(:disabled) {
 
 /* 회원가입으로 이동 */
 .gotoSignup {
-   margin: -170px auto 200px auto;
+   margin: -170px auto 300px auto;
    width: fit-content;
 }
 .gotoSignup > ul {
@@ -394,7 +397,7 @@ button:hover:not(:disabled) {
 
 /* 리뷰 표 */
 
-.grid,
+/* .grid,
 .grid2 {
    display: flex;
 }
@@ -413,5 +416,244 @@ button:hover:not(:disabled) {
    margin-bottom: 30px;
 }
 .grid2 > li {
-   margin-right: 10px;
+   margin-right: 20px;
+} */
+
+/* 리뷰 표 수정본 */
+table {
+   margin: 0 auto;
+   border-spacing: 40px 40px; /* 행 간 간격 설정 */
+}
+.reviewContent {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 20ch; /* 10자 정도만 보이게 설정 */
+   display: inline-block; /* block 요소가 아닌 경우 추가 */
+}
+
+/* 리뷰 상세 */
+.reviewDetail {
+   text-align: center;
+   margin: 90px 0 180px 0;
+}
+
+.reviewDetail > h1 {
+   margin-bottom: 40px;
+}
+
+.content {
+   white-space: normal; /* 자동 줄바꿈 활성화 */
+   word-break: break-word; /* 단어가 너무 길면 단어 중간에 줄바꿈 */
+   overflow-wrap: break-word; /* 단어 중간 줄바꿈을 추가로 보장 */
+   width: 400px; /* 적절한 너비를 설정 */
+   margin: 40px auto 60px auto;
+}
+
+/* 리뷰 작성 페이지 */
+
+.reviewCreate > h1 {
+   padding: 10px 75px;
+   overflow: hidden; /* float clear */
+   position: relative;
+   color: #4c0070;
+   font-weight: 600;
+   font-size: 20px;
+   margin-bottom: 90px;
+   text-align: left;
+}
+.reviewCreate > h1::after {
+   content: '';
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%; /* li의 너비를 채움 */
+   height: 100%; /* li의 높이를 채움 */
+   z-index: -1; /* 텍스트보다 뒤로 */
+   background-color: #e6b1ff;
+   opacity: 0.7;
+}
+.reviewCreate {
+   text-align: center;
+}
+.reviewCreate > h2 {
+   font-weight: 500;
+   font-size: 36px;
+   margin-bottom: 40px;
+}
+.reviewForm > textarea {
+   background-color: transparent;
+   border: 10px solid rgba(188, 47, 255, 0.5);
+   width: 850px;
+   height: 250px;
+   color: white;
+   font-size: 20px;
+}
+
+/* 홈화면 꾸미기 */
+.butterfly {
+   width: 30px;
+   height: auto;
+   position: absolute;
+   top: 0;
+   left: 650px;
+   transform: rotate(45deg);
+   animation: sway 2s infinite ease-in-out, blink 1s infinite ease-in-out; /* 애니메이션 추가 */
+}
+
+@keyframes sway {
+   0% {
+      transform: translateX(0) rotate(45deg); /* 원래 위치에서 시작 */
+      opacity: 1;
+   }
+   50% {
+      transform: translateX(10px) rotate(20deg); /* 오른쪽으로 이동 */
+      opacity: 0.2;
+   }
+   100% {
+      transform: translateX(0) rotate(45deg); /* 원래 위치로 돌아옴 */
+      opacity: 1;
+   }
+}
+
+.butterfly1 {
+   width: 30px;
+   height: auto;
+   position: absolute;
+   top: 100px;
+   left: 730px;
+   rotate: -30deg;
+   animation: sway1 2s infinite ease-in-out; /* 애니메이션 추가 */
+}
+
+@keyframes sway1 {
+   0% {
+      transform: translateX(0) rotate(-30deg); /* 원래 위치에서 시작 */
+      opacity: 1;
+   }
+   50% {
+      transform: translateX(10px) rotate(20deg); /* 오른쪽으로 이동 */
+      opacity: 0.3;
+   }
+   100% {
+      transform: translateX(0) rotate(-30deg); /* 원래 위치로 돌아옴 */
+      opacity: 1;
+   }
+}
+.butterfly2 {
+   width: 30px;
+   height: auto;
+   position: absolute;
+   top: 200px;
+   left: 600px;
+   rotate: 0deg;
+   animation: sway2 2s infinite ease-in-out; /* 애니메이션 추가 */
+}
+
+@keyframes sway2 {
+   0% {
+      transform: translateX(0) rotate(0deg); /* 원래 위치에서 시작 */
+      opacity: 1;
+   }
+   50% {
+      transform: translateX(10px) rotate(-50deg); /* 오른쪽으로 이동 */
+      opacity: 0;
+   }
+   100% {
+      transform: translateX(0) rotate(0deg); /* 원래 위치로 돌아옴 */
+      opacity: 1;
+   }
+}
+
+@keyframes blink {
+   0%,
+   100% {
+      opacity: 0.2; /* 거의 투명 */
+   }
+   50% {
+      opacity: 1; /* 완전히 보임 */
+   }
+}
+.butterfly6 {
+   width: 30px;
+   height: auto;
+   position: absolute;
+   top: 100px;
+   left: 500px;
+   rotate: 0deg;
+   animation: sway2 2s infinite ease-in-out; /* 애니메이션 추가 */
+}
+.butterfly7 {
+   width: 30px;
+   height: auto;
+   position: absolute;
+   top: 250px;
+   left: 750px;
+   rotate: 0deg;
+   animation: sway1 2s infinite ease-in-out, blink 1s infinite ease-in-out; /* 애니메이션 추가 */
+}
+/*  */
+.butterfly3 {
+   width: 30px;
+   height: auto;
+   position: absolute;
+   top: 200px;
+   right: 600px;
+   rotate: 0deg;
+   animation: sway2 2s infinite ease-in-out; /* 애니메이션 추가 */
+}
+.butterfly4 {
+   width: 30px;
+   height: auto;
+   position: absolute;
+   top: 100px;
+   right: 730px;
+   rotate: -20deg;
+   animation: sway 2s infinite ease-in-out, blink 1s infinite ease-in-out; /* 애니메이션 추가 */
+}
+.butterfly5 {
+   width: 30px;
+   height: auto;
+   position: absolute;
+   top: 0px;
+   right: 600px;
+   rotate: -20deg;
+   animation: sway 2s infinite ease-in-out; /* 애니메이션 추가 */
+}
+.butterfly8 {
+   width: 30px;
+   height: auto;
+   position: absolute;
+   top: 100px;
+   right: 500px;
+   rotate: 0deg;
+   animation: sway1 2s infinite ease-in-out; /* 애니메이션 추가 */
+}
+.butterfly9 {
+   width: 30px;
+   height: auto;
+   position: absolute;
+   top: 300px;
+   right: 700px;
+   rotate: 0deg;
+   animation: sway2 2s infinite ease-in-out; /* 애니메이션 추가 */
+}
+/* 화살표 */
+.arrow {
+   /* width: 50px; */
+   height: auto;
+   position: absolute;
+   top: 93%;
+   left: 780px;
+   rotate: 0deg;
+   transform-origin: center; /* 회전 중심 */
+   animation: spin 1s ease-in-out 1; /* 애니메이션 1번만 실행 */
+}
+@keyframes spin {
+   0% {
+      transform: rotate(0deg); /* 시작 */
+   }
+   100% {
+      transform: rotate(360deg); /* 한 바퀴 회전 */
+   }
 }

@@ -37,27 +37,27 @@ const ReviewDetailPage = () => {
    if (!review) return <p>리뷰를 찾을 수 없습니다.</p>
 
    return (
-      <div>
+      <div className="reviewDetail" style={{ marginBottom: '350px' }}>
          <h1>리뷰 상세</h1>
-         <p>{review.content}</p>
-         <p>작성자: {review.User.nick}</p>
-         <Link to={`/review/edit/${review.id}`}>
-            {isAuthenticated && review.UserId === user.id && (
-               <ul className="grid2">
-                  <li style={{ cursor: 'pointer' }}>
-                     <Link to={`/review/edit/${review.id}`}>✏️</Link>
-                  </li>
+         <p style={{ marginBottom: '20px' }}>작성자: {review.User.nick}</p>
+         {isAuthenticated && review.UserId === user.id && (
+            <ul className="grid2" style={{ display: 'flex', justifyContent: 'center' }}>
+               <li style={{ cursor: 'pointer', marginRight: '30px' }}>
+                  <Link to={`/review/edit/${review.id}`}>수정</Link>
+               </li>
 
-                  <li style={{ cursor: 'pointer' }} onClick={() => onClickDelete(review.id)}>
-                     🗑️
-                  </li>
-               </ul>
-            )}
-         </Link>
+               <li style={{ cursor: 'pointer' }} onClick={() => onClickDelete(review.id)}>
+                  삭제
+               </li>
+            </ul>
+         )}
+         <p className="content">{review.content}</p>
+         <div onClick={() => (window.location.href = `/review/edit/${review.id}`)}></div>
          {/* 뒤로가기 버튼 */}
          <button
             style={{ marginTop: '20px', cursor: 'pointer' }}
             onClick={() => navigate(`/review`)} // 이전 페이지로 이동
+            className="buttonCreate"
          >
             뒤로가기
          </button>

@@ -40,11 +40,11 @@ const ReviewEditPage = () => {
    if (!review) return <p>리뷰를 찾을 수 없습니다.</p>
 
    return (
-      <div>
+      <div className="reviewCreate">
          <h1>리뷰 수정</h1>
-         <form onSubmit={handleSubmit}>
+         <form onSubmit={handleSubmit} className="reviewForm">
             <textarea value={content} onChange={(e) => setContent(e.target.value)} />
-            <button type="submit" style={{ cursor: 'pointer' }}>
+            <button type="submit" style={{ cursor: 'pointer' }} className="buttonCreate">
                수정하기
             </button>
          </form>

@@ -46,7 +46,7 @@ const Signup = () => {
             <h2>
                <span>로그인</span>을 통해 서비스를 이용해 보세요
             </h2>
-            <div className="moveToLogin">
+            <div className="moveToLogin" style={{ marginBottom: '480px' }}>
                <Link to="/login">로그인 페이지로 이동</Link>
             </div>
          </div>
@@ -79,7 +79,7 @@ const Signup = () => {
             <input type="password" id="confirmPassword" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} />
          </div>
 
-         <button onClick={handleSignup} disabled={loading}>
+         <button onClick={handleSignup} disabled={loading} className="buttonCreate">
             {loading ? '처리 중...' : '가입하기'}
          </button>
       </div>

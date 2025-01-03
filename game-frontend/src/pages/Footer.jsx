@@ -2,7 +2,7 @@
 
 const Footer = () => {
    return (
-      <div style={{ backgroundColor: 'rgba(239,141,255,0.1)' }}>
+      <div style={{ backgroundColor: 'rgba(239,141,255,0.1)', marginTop: '100px' }}>
          <div style={{ color: '#acacac', marginLeft: '60px', padding: '20px 0' }}>Lorem ipsum dolor sit amet consectetur. In volutpat amet lacus ultrices leo lectus arcu.</div>
          <div style={{ color: '#acacac', marginLeft: '60px', padding: '0 0 20px 0' }}>
             Tellus viverra vitae tempor ullamcorper. Faucibus rutrum sed etiam donec nulla.

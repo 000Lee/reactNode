@@ -31,25 +31,26 @@ const ReviewItem = ({ isAuthenticated, user, review }) => {
       [dispatch]
    )
    return (
-      <ul className="grid">
-         <li>{review.User.nick}</li>
-
-         <li>{dayjs(review.createdAt).format('YYYY-MM-DD HH:mm:ss')}</li>
-         <Link to={`/review/${review.id}`}>{review.content}</Link>
-
+      <tr className="grid">
+         <td>{review.User.nick}</td>
+         <td className="reviewContent">
+            <Link to={`/review/${review.id}`}>{review.content}</Link>
+         </td>
+         <td>{dayjs(review.createdAt).format('YYYY-MM-DD HH:mm:ss')}</td>
          {/* 버튼 고민 */}
          {isAuthenticated && review.UserId === user.id && (
-            <ul className="grid2">
-               <li style={{ cursor: 'pointer' }}>
-                  <Link to={`/review/edit/${review.id}`}>✏️</Link>
-               </li>
+            <>
+               <td>
+                  <Link to={`/review/edit/${review.id}`}>수정</Link>
+               </td>
 
-               <li style={{ cursor: 'pointer' }} onClick={() => onClickDelete(review.id)}>
-                  🗑️
-               </li>
-            </ul>
+               <td style={{ cursor: 'pointer' }} onClick={() => onClickDelete(review.id)}>
+                  삭제
+               </td>
+            </>
+            /*  </ul> */
          )}
-      </ul>
+      </tr>
    )
 }
 

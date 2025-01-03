@@ -33,9 +33,7 @@ const Navbar = ({ isAuthenticated, user }) => {
          {isAuthenticated ? (
             <div className="loginTrueWrap">
                <ul className="loginTrue">
-                  <li>
-                     <Link to="/my">{user?.nick}</Link>
-                  </li>
+                  <li>{user?.nick}</li>
                   <li>
                      <ul className="heartCount">
                         <li>♥</li>

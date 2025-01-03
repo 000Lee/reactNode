@@ -35,8 +35,9 @@ const ReviewCreatePage = () => {
    )
 
    return (
-      <div>
-         <h1>게시물 등록</h1>
+      <div className="reviewCreate">
+         <h1>리뷰</h1>
+         <h2>리뷰를 작성해주세요</h2>
          <ReviewForm onSubmit={handleSubmit} />
       </div>
    )

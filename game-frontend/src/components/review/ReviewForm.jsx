@@ -25,7 +25,7 @@ const ReviewForm = ({ initialValues = {} }) => {
             console.log('응답 데이터:', response) // 응답 데이터를 확인
 
             const { heart, star } = response.user // 서버에서 반환된 하트와 별
-            alert(`🎉 하트 ${heart}개, 별 ${star}개를 얻었습니다!`)
+            alert(`🎉 하트 ${heart}개, 별 ${star}개를 획득하셨습니다!`)
 
             // 하트와 별 상태 업데이트
             dispatch(updateHeartStar({ heart: response.user.heart, star: response.user.star }))
@@ -44,12 +44,12 @@ const ReviewForm = ({ initialValues = {} }) => {
 
    return (
       <form onSubmit={handleSubmit}>
-         <div>
-            <label htmlFor="content">리뷰</label>
+         <div className="reviewForm">
+            <label htmlFor="content"></label>
             <textarea id="content" value={content} onChange={(e) => setContent(e.target.value)}></textarea>
          </div>
          <div>
-            <button type="submit" style={{ cursor: 'pointer' }}>
+            <button type="submit" style={{ cursor: 'pointer' }} className="buttonCreate">
                {submitButtonLabel}
             </button>
          </div>
