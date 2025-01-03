@@ -22,41 +22,50 @@ const Navbar = ({ isAuthenticated, user }) => {
    }, [dispatch, navigate])
 
    return (
-      <div className="header">
-         <Link to="/">
-            <div className="princessSofia">
-               LUNAR
-               <br />
-               EffecT
-            </div>
-         </Link>
-         {isAuthenticated ? (
-            <div className="loginTrueWrap">
-               <ul className="loginTrue">
-                  <li>{user?.nick}</li>
-                  <li>
-                     <ul className="heartCount">
-                        <li>♥</li>
-                        <li>{heart}</li>
-                     </ul>
-                  </li>
-                  <li>
-                     <ul className="starCount">
-                        <li>★</li>
-                        <li>{star}</li>
-                     </ul>
-                  </li>
-                  <li onClick={handleLogout} style={{ cursor: 'pointer' }}>
-                     로그아웃
-                  </li>
-               </ul>
-            </div>
-         ) : (
-            <div className="loginFalseWrap">
-               <Link to="/login">로그인</Link>
-            </div>
-         )}
-      </div>
+      <>
+         <div className="banner">
+            출시 기념 리뷰이벤트!&nbsp;&nbsp; 최초 리뷰 입력시 랜덤으로 게임 아이템을
+            드립니다!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;출시
+            기념 리뷰이벤트!&nbsp;&nbsp; 최초 리뷰 입력시 랜덤으로 게임 아이템을
+            드립니다!&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;출시
+            기념 리뷰이벤트! &nbsp;&nbsp;최초 리뷰 입력시 랜덤으로 게임 아이템을 드립니다!
+         </div>
+         <div className="header">
+            <Link to="/">
+               <div className="princessSofia">
+                  LUNAR
+                  <br />
+                  EffecT
+               </div>
+            </Link>
+            {isAuthenticated ? (
+               <div className="loginTrueWrap">
+                  <ul className="loginTrue">
+                     <li>{user?.nick}</li>
+                     <li>
+                        <ul className="heartCount">
+                           <li>♥</li>
+                           <li>{heart}</li>
+                        </ul>
+                     </li>
+                     <li>
+                        <ul className="starCount">
+                           <li>★</li>
+                           <li>{star}</li>
+                        </ul>
+                     </li>
+                     <li onClick={handleLogout} style={{ cursor: 'pointer' }}>
+                        로그아웃
+                     </li>
+                  </ul>
+               </div>
+            ) : (
+               <div className="loginFalseWrap">
+                  <Link to="/login">로그인</Link>
+               </div>
+            )}
+         </div>
+      </>
    )
 }
 
