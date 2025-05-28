@@ -26,10 +26,6 @@
 
 ### [ERD](https://www.erdcloud.com/d/7PQfv2Jjfnz6miQMu)
 
-<br/>
-
-# 아키텍처 다이어그램
-![아키텍처 다이어그램](https://github.com/ggumugi/studyming-frontend/blob/main/public/img/%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90.webp)
 
 <br/>
 
@@ -41,8 +37,6 @@
   - `axios`  
   - `redux`, `@reduxjs/toolkit`  
   - `styled-components`  
-  - `socket.io-client`  
-  - `slick-carousel`  
   - `react-router-dom`  
 
 ## 🛠 Back-end  
@@ -50,19 +44,11 @@
 - **사용 라이브러리**  
   - `Sequelize`  
   - `express`  
-  - `nodemailer`  
-  - `node-cron`  
   - `axios`  
-  - `socket.io`  
 
 ## 🗄 Database  
 - **MySQL** v8.0.36  
 
-## ☁ Deploy
-- **AWS**  
-  - Node.js 백엔드 배포 (Ubuntu Linux)  
-  - MySQL (RDS)  
-- **Netlify**  
-  - React 프론트엔드 배포  
+
 
 
