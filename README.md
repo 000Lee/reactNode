@@ -44,8 +44,16 @@
 - **사용 라이브러리**  
   - `Sequelize`  
   - `express`  
+  - `express-session`  
+  - `passport`  
   - `axios`  
-
+  - `cookie-parser`  
+  - `dotenv`  
+  - `cors`  
+  - `multer`  
+  - `morgan`  
+  - `bcrypt`
+ 
 ## 🗄 Database  
 - **MySQL** v8.0.36  
 
