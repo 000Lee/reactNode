@@ -1,4 +1,4 @@
-![LUNAR EffecT]()
+![LUNAR EffecT](https://github.com/000Lee/reactNode/blob/main/game-frontend/public/images/logo.png)
 # LUNAR EffecT
 
 리뷰를 입력하면 랜덤으로 포인트를 증정하는 게임 이벤트 사이트
